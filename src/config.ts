@@ -4,6 +4,15 @@
 // Technology Consulting Company Website Configuration
 // =============================================================================
 
+// Helper function to get correct image paths for both dev and production
+const getImagePath = (path: string): string => {
+  const base = import.meta.env.BASE_URL || '/';
+  return base.endsWith('/') ? `${base}${path.startsWith('/') ? path.slice(1) : path}` : `${base}/${path.startsWith('/') ? path.slice(1) : path}`;
+};
+
+// Export for use in components
+export { getImagePath };
+
 // -----------------------------------------------------------------------------
 // Site Config
 // -----------------------------------------------------------------------------
@@ -21,7 +30,7 @@ export const siteConfig: SiteConfig = {
   description: "InfraNova Systems is a technology consulting company specializing in IT infrastructure modernization, cybersecurity, hardware upgrades, and custom software development for businesses.",
   language: "en",
   keywords: "technology consulting, IT infrastructure, cybersecurity, software development, hardware upgrades, business technology, Barranquilla Colombia",
-  ogImage: "/images/hero-bg.jpg",
+  ogImage: getImagePath("/images/hero-bg.jpg"),
   canonical: "https://infranova.systems",
 };
 
@@ -110,7 +119,7 @@ export const heroConfig: HeroConfig = {
     { value: 24, suffix: "/7", label: "Support Available" },
   ],
   decorativeText: "TECHNOLOGY CONSULTING",
-  backgroundImage: "/images/hero-bg.jpg",
+  backgroundImage: getImagePath("/images/hero-bg.jpg"),
 };
 
 // -----------------------------------------------------------------------------
@@ -158,7 +167,7 @@ export const servicesConfig: ServicesConfig = {
       name: "IT Infrastructure",
       subtitle: "Modernization",
       year: "01",
-      image: "/images/infrastructure.jpg",
+      image: getImagePath("/images/infrastructure.jpg"),
       filter: "",
       glowColor: "bg-blue-500/20",
       description: "Upgrade outdated computers, operating systems, and storage systems to modern high-performance hardware.",
@@ -170,7 +179,7 @@ export const servicesConfig: ServicesConfig = {
       name: "Cybersecurity",
       subtitle: "Implementation",
       year: "02",
-      image: "/images/cybersecurity.jpg",
+      image: getImagePath("/images/cybersecurity.jpg"),
       filter: "",
       glowColor: "bg-purple-500/20",
       description: "Protect company data with secure operating systems, antivirus protection, and secure data backup systems.",
@@ -182,7 +191,7 @@ export const servicesConfig: ServicesConfig = {
       name: "Custom Software",
       subtitle: "Development",
       year: "03",
-      image: "/images/software-dev.jpg",
+      image: getImagePath("/images/software-dev.jpg"),
       filter: "",
       glowColor: "bg-cyan-500/20",
       description: "Design and develop software tailored to the specific needs of each business.",
@@ -194,7 +203,7 @@ export const servicesConfig: ServicesConfig = {
       name: "Data Management",
       subtitle: "& Optimization",
       year: "04",
-      image: "/images/data-management.jpg",
+      image: getImagePath("/images/data-management.jpg"),
       filter: "",
       glowColor: "bg-emerald-500/20",
       description: "Implement structured data systems, validation rules, and standardized formats to improve reliability and analysis.",
@@ -206,7 +215,7 @@ export const servicesConfig: ServicesConfig = {
       name: "Technology",
       subtitle: "Consulting",
       year: "05",
-      image: "/images/consulting.jpg",
+      image: getImagePath("/images/consulting.jpg"),
       filter: "",
       glowColor: "bg-amber-500/20",
       description: "Provide technical analysis, infrastructure evaluation, and strategic recommendations for companies that need technological transformation.",
@@ -265,7 +274,7 @@ export const caseStudyConfig: CaseStudyConfig = {
   locationTag: "Barranquilla, Colombia",
   slides: [
     {
-      image: "/images/cybercafe.jpg",
+      image: getImagePath("/images/cybercafe.jpg"),
       title: "Before Modernization",
       subtitle: "Outdated Infrastructure",
       area: "Problems",
@@ -273,7 +282,7 @@ export const caseStudyConfig: CaseStudyConfig = {
       description: "The cybercafé was struggling with unsupported operating systems, slow HDD storage, low RAM capacity, and significant security vulnerabilities affecting customer experience.",
     },
     {
-      image: "/images/infrastructure.jpg",
+      image: getImagePath("/images/infrastructure.jpg"),
       title: "Our Solution",
       subtitle: "Complete Transformation",
       area: "Systems",
@@ -281,7 +290,7 @@ export const caseStudyConfig: CaseStudyConfig = {
       description: "We implemented a comprehensive modernization plan including hardware upgrades to modern processors and SSD storage, migration to modern operating systems, and cloud data backup systems.",
     },
     {
-      image: "/images/cybersecurity.jpg",
+      image: getImagePath("/images/cybersecurity.jpg"),
       title: "The Results",
       subtitle: "Dramatic Improvement",
       area: "Performance",
@@ -348,7 +357,7 @@ export const methodologyConfig: MethodologyConfig = {
       id: "diagnosis",
       name: "Diagnosis",
       icon: "Search",
-      image: "/images/consulting.jpg",
+      image: getImagePath("/images/consulting.jpg"),
       content: {
         title: "Technical Diagnosis",
         description: "We begin with a comprehensive evaluation of your existing infrastructure. Our team identifies technological risks, performance bottlenecks, and security vulnerabilities to create a detailed assessment report.",
@@ -359,7 +368,7 @@ export const methodologyConfig: MethodologyConfig = {
       id: "design",
       name: "Design",
       icon: "Layout",
-      image: "/images/data-management.jpg",
+      image: getImagePath("/images/data-management.jpg"),
       content: {
         title: "Infrastructure Design",
         description: "Based on our diagnosis, we design an optimal hardware and software architecture tailored to your business needs. This includes selecting the right components, planning migrations, and ensuring scalability.",
@@ -370,7 +379,7 @@ export const methodologyConfig: MethodologyConfig = {
       id: "implementation",
       name: "Implementation",
       icon: "Settings",
-      image: "/images/infrastructure.jpg",
+      image: getImagePath("/images/infrastructure.jpg"),
       content: {
         title: "Implementation",
         description: "Our expert team deploys new systems, security tools, and upgraded hardware with minimal disruption to your operations. We handle everything from installation to configuration and testing.",
@@ -381,7 +390,7 @@ export const methodologyConfig: MethodologyConfig = {
       id: "optimization",
       name: "Optimization",
       icon: "TrendingUp",
-      image: "/images/software-dev.jpg",
+      image: getImagePath("/images/software-dev.jpg"),
       content: {
         title: "Optimization",
         description: "After implementation, we continuously monitor and improve system performance. Our optimization process ensures your technology investment delivers maximum value and remains future-proof.",
@@ -400,7 +409,7 @@ export const methodologyConfig: MethodologyConfig = {
     attribution: "InfraNova Systems Team",
   },
   founderPhotoAlt: "Technology Infrastructure",
-  founderPhoto: "/images/hero-bg.jpg",
+  founderPhoto: getImagePath("/images/hero-bg.jpg"),
 };
 
 // -----------------------------------------------------------------------------
@@ -526,7 +535,7 @@ export const teamConfig: TeamConfig = {
     text: "To empower businesses with modern technology solutions that drive growth, efficiency, and security.",
     attribution: "InfraNova Systems",
   },
-  storyImage: "/images/consulting.jpg",
+  storyImage: getImagePath("/images/consulting.jpg"),
   storyImageCaption: "Our team providing technology consulting services",
 };
 
