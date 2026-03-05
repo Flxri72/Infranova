@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redirecting...</title>
+    <script>
+      // Redirect to the Infranova application
+      const path = window.location.pathname.replace(/^\/Infranova/, '');
+      window.location.replace('/Infranova/' + (path === '/' ? '' : path) + window.location.hash);
+    </script>
+  </head>
+  <body>
+    Redirecting to application...
+  </body>
+</html>
