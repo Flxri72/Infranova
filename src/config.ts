@@ -5,13 +5,19 @@
 // =============================================================================
 
 // Helper function to get correct image paths for both dev and production
-const getImagePath = (path: string): string => {
-  const base = import.meta.env.BASE_URL || '/';
-  return base.endsWith('/') ? `${base}${path.startsWith('/') ? path.slice(1) : path}` : `${base}/${path.startsWith('/') ? path.slice(1) : path}`;
+export const getImagePath = (imagePath: string): string => {
+  // Get the base path - in Vite, import.meta.env.BASE_URL is processed at build time
+  const basePath = import.meta.env.BASE_URL || '/';
+  
+  // Remove leading slash from image path if present
+  const cleanPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+  
+  // Ensure basePath ends with /
+  const cleanBase = basePath.endsWith('/') ? basePath : basePath + '/';
+  
+  // Combine base and path
+  return cleanBase + cleanPath;
 };
-
-// Export for use in components
-export { getImagePath };
 
 // -----------------------------------------------------------------------------
 // Site Config

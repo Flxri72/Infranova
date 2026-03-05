@@ -14,9 +14,13 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     const fadeTimer = setTimeout(() => setPhase('fading'), 2200);
     const completeTimer = setTimeout(() => onComplete(), 2800);
+    // Safety timeout - ensure preloader doesn't stay forever (5 seconds max)
+    const safetyTimer = setTimeout(() => onComplete(), 5000);
+    
     return () => {
       clearTimeout(fadeTimer);
       clearTimeout(completeTimer);
+      clearTimeout(safetyTimer);
     };
   }, [onComplete]);
 
