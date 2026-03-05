@@ -76,7 +76,7 @@ export function Hero({ isReady }: { isReady: boolean }) {
       <div className="relative z-10 container-custom text-center py-32 lg:py-40">
         {/* Script accent */}
         <div className={`transition-all duration-1000 ease-out ${phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <span className="font-script text-5xl md:text-6xl lg:text-7xl text-gold-400">
+          <span className="font-serif text-5xl md:text-6xl lg:text-7xl text-gold-400">
             {heroConfig.scriptText}
           </span>
         </div>

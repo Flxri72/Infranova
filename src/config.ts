@@ -91,7 +91,7 @@ export interface PreloaderConfig {
 export const preloaderConfig: PreloaderConfig = {
   brandName: "InfraNova",
   brandSubname: "Systems",
-  yearText: "Est. 2024",
+  yearText: "Est. 2026",
 };
 
 // -----------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Wine } from 'lucide-react';
+import { Computer } from 'lucide-react';
 import { preloaderConfig } from '../config';
 
 export function Preloader({ onComplete }: { onComplete: () => void }) {
@@ -32,7 +32,7 @@ export function Preloader({ onComplete }: { onComplete: () => void }) {
     >
       {/* Logo Icon */}
       <div className="preloader-text mb-6">
-        <Wine className="w-12 h-12 text-gold-500" />
+        <Computer className="w-12 h-12 text-gold-500" />
       </div>
 
       {/* Brand Name */}
