@@ -10,3 +10,6 @@ node_modules
 # Scripts with secrets
 create-repo.ps1
 
+# GitHub workflow (requires token with workflow scope to push)
+.github/
+
